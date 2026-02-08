@@ -1,14 +1,12 @@
-import sys
+#Taking arn from user and extracting it:
+#python3 extract_users.py arn:aws:iam::123:user/batman - imput gives batman as output
 
-aws_arns = [ "arn:aws:iam::123456789012:user/shreyansh",
-    "arn:aws:iam::123456789012:user/dev-ops-admin",
-    "arn:aws:iam::987654321098:user/deploy-bot" ]
+import sys #allow script to talk with terminal
 
-def get_username(arn):
-	return arn.split("/")[-1]
+def extract_user(arn):
+    return arn.split("/")[-1]
 
-print("--Extracted Users--")
-for arn in aws_arns:
-	user = get_username(arn)
-	print(user)
-
+if len(sys.argv) > 1 :
+    arn = sys.argv[1]
+    username = extract_user(arn)
+    print(f"The usename is: {username}")
