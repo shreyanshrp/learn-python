@@ -10,3 +10,5 @@ if len(sys.argv) > 1 :
     arn = sys.argv[1]
     username = extract_user(arn)
     print(f"The usename is: {username}")
+
+#Notice the f before the quote? That stands for "format". It lets you put variables directly inside the string using {}.
